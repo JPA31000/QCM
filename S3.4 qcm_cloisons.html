@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCM : Les Cloisons en Bâtiment</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+    h1 { text-align: center; color: #333; }
+    .quiz-container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .question { margin-bottom: 20px; }
+    .question h3 { color: #444; }
+    label { display: block; margin: 8px 0; padding: 8px; border-radius: 12px; transition: background 0.3s; cursor: pointer; }
+    input[type="radio"] { margin-right: 10px; }
+    button { display: block; margin: 20px auto; padding: 12px 24px; background: #007BFF; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+    button:hover { background: #0056b3; }
+    .results { margin-top: 30px; padding: 20px; background: #e2e3e5; border-radius: 12px; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>QCM : Les Cloisons en Bâtiment</h1>
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. Quelle est la fonction principale des cloisons de distribution ?</h3>
+        <label><input type="radio" name="q1" value="a"> Améliorer l'isolation des murs extérieurs</label>
+        <label><input type="radio" name="q1" value="b"> Séparer deux logements</label>
+        <label><input type="radio" name="q1" value="c"> Diviser l'espace intérieur utilisé par un même usager</label>
+        <label><input type="radio" name="q1" value="d"> Soutenir la structure du bâtiment</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Quel matériau n'est PAS couramment utilisé pour les cloisons de distribution ?</h3>
+        <label><input type="radio" name="q2" value="a"> Plaques de plâtre</label>
+        <label><input type="radio" name="q2" value="b"> Béton armé</label>
+        <label><input type="radio" name="q2" value="c"> Briques plâtrières</label>
+        <label><input type="radio" name="q2" value="d"> Carreaux de plâtre</label>
+      </div>
+
+      <div class="question">
+        <h3>3. Quel est l'avantage principal d'un doublage direct ?</h3>
+        <label><input type="radio" name="q3" value="a"> Meilleure protection incendie</label>
+        <label><input type="radio" name="q3" value="b"> Isolation acoustique maximale</label>
+        <label><input type="radio" name="q3" value="c"> Gain d'espace considérable</label>
+        <label><input type="radio" name="q3" value="d"> Résistance mécanique</label>
+      </div>
+
+      <div class="question">
+        <h3>4. Quelle norme est à respecter pour les cloisons en plaques de plâtre ?</h3>
+        <label><input type="radio" name="q4" value="a"> DTU 36.1</label>
+        <label><input type="radio" name="q4" value="b"> DTU 25.1</label>
+        <label><input type="radio" name="q4" value="c"> DTU 13.3</label>
+        <label><input type="radio" name="q4" value="d"> DTU 20.12</label>
+      </div>
+
+      <div class="question">
+        <h3>5. Quel type de cloison offre la meilleure isolation entre logements ?</h3>
+        <label><input type="radio" name="q5" value="a"> Cloison de doublage</label>
+        <label><input type="radio" name="q5" value="b"> Cloison de distribution</label>
+        <label><input type="radio" name="q5" value="c"> Cloison de séparation</label>
+        <label><input type="radio" name="q5" value="d"> Cloison mobile</label>
+      </div>
+
+      <div class="question">
+        <h3>6. Dans un doublage autoportant, que place-t-on dans l'espace entre l'ossature ?</h3>
+        <label><input type="radio" name="q6" value="a"> De l'air uniquement</label>
+        <label><input type="radio" name="q6" value="b"> Un isolant</label>
+        <label><input type="radio" name="q6" value="c"> Une couche de béton</label>
+        <label><input type="radio" name="q6" value="d"> Un revêtement étanche</label>
+      </div>
+
+      <div class="question">
+        <h3>7. Quel critère n'est PAS mentionné pour le choix d'une cloison ?</h3>
+        <label><input type="radio" name="q7" value="a"> L'esthétique</label>
+        <label><input type="radio" name="q7" value="b"> La performance technique</label>
+        <label><input type="radio" name="q7" value="c"> Le budget</label>
+        <label><input type="radio" name="q7" value="d"> Les normes</label>
+      </div>
+
+      <div class="question">
+        <h3>8. Quelle combinaison de matériaux est typique pour une cloison de séparation ?</h3>
+        <label><input type="radio" name="q8" value="a"> Plaques de plâtre seules</label>
+        <label><input type="radio" name="q8" value="b"> Béton armé et acier</label>
+        <label><input type="radio" name="q8" value="c"> Plaques avec isolant, briques, béton cellulaire</label>
+        <label><input type="radio" name="q8" value="d"> Bois massif et plâtre</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Valider mes réponses</button>
+    </form>
+    <div id="results" class="results"></div>
+  </div>
+
+  <script>
+    const reponses = {
+      q1: "c",
+      q2: "b",
+      q3: "c",
+      q4: "b",
+      q5: "c",
+      q6: "b",
+      q7: "a",
+      q8: "c",
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      const form = document.getElementById("quizForm");
+      const results = document.getElementById("results");
+      results.innerHTML = "";
+
+      for (let i = 1; i <= 8; i++) {
+        const question = form[`q${i}`];
+        const userAnswer = question.value;
+        const correct = reponses[`q${i}`];
+        const isCorrect = userAnswer === correct;
+
+        if (isCorrect) score++;
+        results.innerHTML += `<p>Question ${i} : <span class="${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? 'Bonne réponse' : 'Mauvaise réponse'} (réponse correcte : ${correct.toUpperCase()})</span></p>`;
+
+        // Désactiver toutes les options de la question
+        for (const input of question) {
+          input.disabled = true;
+        }
+      }
+      results.innerHTML = `<h3>Votre score : ${score} / 8</h3>` + results.innerHTML;
+    }
+  </script>
+</body>
+</html>
